@@ -1,4 +1,4 @@
-package click.porito.components;
+package click.porito.hierarchical_based.components;
 
 import lombok.Getter;
 import lombok.Setter;

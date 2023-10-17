@@ -1,8 +1,7 @@
-package click.porito;
+package click.porito.hierarchical_based;
 
-import click.porito.components.Cluster;
-import click.porito.components.ConsoleColors;
-import click.porito.components.Point;
+import click.porito.hierarchical_based.components.Cluster;
+import click.porito.hierarchical_based.components.Point;
 
 import java.util.*;
 

@@ -1,11 +1,10 @@
-package click.porito;
+package click.porito.hierarchical_based;
 
-import click.porito.components.Cluster;
-import click.porito.components.Point;
+import click.porito.hierarchical_based.components.Cluster;
+import click.porito.hierarchical_based.components.Point;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 public class TimeChecker {

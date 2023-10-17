@@ -1,4 +1,4 @@
-package click.porito.components;
+package click.porito.hierarchical_based.components;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,11 +9,11 @@ import java.util.List;
 
 public class ClusterPathPanel extends JComponent {
     private Cluster root;
-    private List<Point> route;
+    private List<click.porito.hierarchical_based.components.Point> route;
     private int daySplit;
 
 
-    public ClusterPathPanel(Cluster root, List<Point> route, int daySplit) {
+    public ClusterPathPanel(Cluster root, List<click.porito.hierarchical_based.components.Point> route, int daySplit) {
         this.root = root;
         this.route = route;
         this.daySplit = daySplit;
@@ -51,10 +51,10 @@ public class ClusterPathPanel extends JComponent {
             if (cluster.isLeaf()) {
                 g2d.draw(new Ellipse2D.Double(cluster.getCentroid().getX() - 15, cluster.getCentroid().getY() - 15, 30, 30));
             }
-            List<Point> points = cluster.getPoints();
-            double centerX = points.stream().mapToDouble(Point::getX).average().orElseThrow();
-            double centerY = points.stream().mapToDouble(Point::getY).average().orElseThrow();
-            Point center = new Point(centerX, centerY);
+            List<click.porito.hierarchical_based.components.Point> points = cluster.getPoints();
+            double centerX = points.stream().mapToDouble(click.porito.hierarchical_based.components.Point::getX).average().orElseThrow();
+            double centerY = points.stream().mapToDouble(click.porito.hierarchical_based.components.Point::getY).average().orElseThrow();
+            click.porito.hierarchical_based.components.Point center = new click.porito.hierarchical_based.components.Point(centerX, centerY);
             double radius = points.stream().mapToDouble(p -> p.distance(center)).max().orElseThrow();
             g2d.draw(new Ellipse2D.Double(centerX - radius, centerY - radius, radius * 2 , radius * 2));
         }
@@ -69,10 +69,10 @@ public class ClusterPathPanel extends JComponent {
             return;
         }
         //하나씩 순회 조회하면서 모든 point를 포함하는 최대원을 그린다
-        List<Point> points = cluster.getPoints();
-        double centerX = points.stream().mapToDouble(Point::getX).average().orElseThrow();
-        double centerY = points.stream().mapToDouble(Point::getY).average().orElseThrow();
-        Point center = new Point(centerX, centerY);
+        List<click.porito.hierarchical_based.components.Point> points = cluster.getPoints();
+        double centerX = points.stream().mapToDouble(click.porito.hierarchical_based.components.Point::getX).average().orElseThrow();
+        double centerY = points.stream().mapToDouble(click.porito.hierarchical_based.components.Point::getY).average().orElseThrow();
+        click.porito.hierarchical_based.components.Point center = new click.porito.hierarchical_based.components.Point(centerX, centerY);
         double radius = points.stream().mapToDouble(p -> p.distance(center)).max().orElseThrow();
         g2d.draw(new Ellipse2D.Double(centerX - radius, centerY - radius, radius * 2 , radius * 2));
         for (var child : cluster.getChildren()) {
@@ -86,7 +86,7 @@ public class ClusterPathPanel extends JComponent {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        List<Point> points = root.getPoints();
+        List<click.porito.hierarchical_based.components.Point> points = root.getPoints();
         for (var point : points) {
             g2d.setColor(Color.BLACK);
             g2d.fill(new Ellipse2D.Double(point.getX() - 5, point.getY() - 5, 10, 10));
@@ -109,7 +109,7 @@ public class ClusterPathPanel extends JComponent {
         g2d.setStroke(new BasicStroke(3));
 
 
-        Point starting = route.get(0);
+        click.porito.hierarchical_based.components.Point starting = route.get(0);
         path.moveTo(starting.getX(), starting.getY());
         for (int i = 1; i < route.size(); i++) {
             Point point = route.get(i);

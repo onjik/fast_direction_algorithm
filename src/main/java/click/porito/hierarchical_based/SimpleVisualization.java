@@ -1,10 +1,10 @@
-package click.porito;
+package click.porito.hierarchical_based;
 
 
-import click.porito.components.Cluster;
-import click.porito.components.ClusterPathPanel;
-import click.porito.components.ClusterPrinter;
-import click.porito.components.Point;
+import click.porito.hierarchical_based.components.Cluster;
+import click.porito.hierarchical_based.components.ClusterPathPanel;
+import click.porito.hierarchical_based.components.ClusterPrinter;
+import click.porito.hierarchical_based.components.Point;
 
 import javax.swing.*;
 import java.awt.*;
@@ -68,11 +68,11 @@ public class SimpleVisualization {
 
 
                 // Do Clustering
-                List<click.porito.components.Point> points = Stream.generate(() -> click.porito.components.Point.randomPoint(EDGE, MAX_X * 0.8 - EDGE, EDGE, MAX_Y * 0.8 - EDGE * 2)).limit(pointCount).collect(Collectors.toList());
+                List<Point> points = Stream.generate(() -> Point.randomPoint(EDGE, MAX_X * 0.8 - EDGE, EDGE, MAX_Y * 0.8 - EDGE * 2)).limit(pointCount).collect(Collectors.toList());
                 HierarchicalClustering alg = new HierarchicalClustering();
                 Cluster cluster = alg.performClustering(points);
                 RouteAlgorithm routeAlgorithm = new RouteAlgorithm();
-                List<click.porito.components.Point> route = routeAlgorithm.performRouting(cluster);
+                List<Point> route = routeAlgorithm.performRouting(cluster);
 
                 // Add a new ClusterPathPanel
                 if (cluster.getPointCount() < daySplit) {
@@ -105,9 +105,9 @@ public class SimpleVisualization {
 
     //swing 으로 점 찍어주는 컴포넌트
     static class PointComponent extends JComponent {
-        private List<click.porito.components.Point> points;
+        private List<Point> points;
 
-        public PointComponent(List<click.porito.components.Point> points) {
+        public PointComponent(List<Point> points) {
             this.points = points;
         }
 
