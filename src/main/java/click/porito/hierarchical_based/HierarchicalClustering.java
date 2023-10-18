@@ -1,7 +1,7 @@
 package click.porito.hierarchical_based;
 
+import click.porito.Point;
 import click.porito.hierarchical_based.components.Cluster;
-import click.porito.hierarchical_based.components.Point;
 
 import java.util.*;
 import java.util.stream.Collectors;

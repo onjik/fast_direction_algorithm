@@ -1,5 +1,6 @@
-package click.porito.hierarchical_based.components;
+package click.porito;
 
+import click.porito.hierarchical_based.components.Cluster;
 import lombok.Getter;
 import lombok.Setter;
 

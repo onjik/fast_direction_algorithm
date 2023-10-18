@@ -1,5 +1,6 @@
 package click.porito.hierarchical_based.components;
 
+import click.porito.Point;
 import lombok.Getter;
 import lombok.Setter;
 
