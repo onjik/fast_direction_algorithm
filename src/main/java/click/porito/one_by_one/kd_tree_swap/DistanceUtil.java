@@ -1,6 +1,6 @@
-package click.porito.one_by_one;
+package click.porito.one_by_one.kd_tree_swap;
 
-import click.porito.Point;
+import click.porito.one_by_one.Point;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package click.porito.one_by_one;
 
-import click.porito.Point;
+import click.porito.one_by_one.simple_linear.LinearPathManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,18 +12,13 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 public class Visualizer extends JFrame {
+    private final PathManager pathManager;
 
-
-    public static void main(String[] args) {
-        Visualizer visualizer = new Visualizer();
-        visualizer.setVisible(true);
-    }
-
-    LinkedList<Point> path;
     private Point[] candidatePoints;
 
-    public Visualizer() {
-        path = new LinkedList<>();
+    public Visualizer(PathManager pathManager) {
+        this.pathManager = pathManager;
+
         candidatePoints = new Point[4];
         //초기 후보값
         Random random = new Random();
@@ -37,10 +32,9 @@ public class Visualizer extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        InsertionPathManager pathManager = new InsertionPathManager(path);
 
         //경로 그려주는 패널
-        PathPanel pathPanel = new PathPanel(path, candidatePoints);
+        PathPanel pathPanel = new PathPanel(pathManager.getPath(), candidatePoints);
         add(pathPanel, BorderLayout.CENTER);
 
 

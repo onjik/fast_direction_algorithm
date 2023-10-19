@@ -1,6 +1,7 @@
 package click.porito.one_by_one;
 
-import click.porito.Point;
+import click.porito.one_by_one.kd_tree_swap.InsertionPathManager;
+import click.porito.one_by_one.simple_linear.LinearPathManager;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.stream.Stream;
 public class TimeRecorder {
     public static void main(String[] args) {
         LinkedList<Point> path = new LinkedList<>();
-        InsertionPathManager insertionPathManager = new InsertionPathManager(path);
-        for (int i = 1; i < 50; i++) {
+        PathManager insertionPathManager = new LinearPathManager(path);
+        for (int i = 1; i < 30; i++) {
             int size = path.size();
 
             Random random = new Random();

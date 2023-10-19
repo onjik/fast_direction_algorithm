@@ -1,4 +1,4 @@
-package click.porito;
+package click.porito.one_by_one;
 
 import click.porito.hierarchical_based.components.Cluster;
 import lombok.Getter;

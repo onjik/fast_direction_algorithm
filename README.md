@@ -62,7 +62,7 @@ TSP(Traveling Salesman Problem, 외판원 문제) 를 해결하기 위해, 기�
 3. 가까운 점 한칸 뒤(index + 1) ~ 경로 맨 끝까지를 새로 추가되는 점과 비교해서 뒤집을지 결정한다.
 
 위 작업은 다음과 같은 경우를 대응하기 위해 추가했다.
-![](docs/one_by_one/case_explain.png)
+![](docs/one_by_one/kd_tree/case_explain.png)
 이러한 과정이 없다면, 양 끝점과 가까운 경우가 아니라면, 여행지의 시작점과 끝점은 절대 바뀌지 않는다.(더 나은 경로가 있음에도)
 4. 뒤집은 이후, (index -1, index, index +1, new point)을 순열 연산하여, 최단 거리의 경우를 구한다.
 5. 최단 거리의 경우를 선택한다.
@@ -77,12 +77,24 @@ TSP(Traveling Salesman Problem, 외판원 문제) 를 해결하기 위해, 기�
 또 이렇게 되면, 즉각적으로 반응을 보여주는 UX를 제공할 수 있습니다. 
 
 초기 실행시
-![](docs/one_by_one/seq1.png)
+![](docs/one_by_one/kd_tree/seq1.png)
 여러번 실행시
-![](docs/one_by_one/seq2.png)
+![](docs/one_by_one/kd_tree/seq2.png)
 위 그림에서 3번을 눌렀을때
-![](docs/one_by_one/seq3.png)
+![](docs/one_by_one/kd_tree/seq3.png)
 그 이후로 여러번 실행시
-![](docs/one_by_one/seq4.png)
+![](docs/one_by_one/kd_tree/seq4.png)
 
+</details>
+
+# Method 3
+<details>
+<summary>Simple Linear Search</summary>
+간단하게, 끼워넣었을 때 증가하는 거리를 계산하여, 가장 증가하는 거리가 가장 작은 경우를 선택한다.
+
+![](docs/one_by_one/linear/linear_performance.png)
+
+다른 방식에 비해 속도가 월등히 빨랐다. 그 이유는 맨 마지막에 있는 swap 과정이 매우 높은 시간 복잡도를 보여주기 때문으로 보인다.
+
+swap 을 빼고 돌리면, 다른 방식 또한 매우 빨랐다.
 </details>
